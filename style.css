@@ -8,10 +8,12 @@ body{
 a{
     color: white;
     text-decoration:none;
+    transition: 0.5s;
 }
 a:hover, button:hover{
     background-color: white;
     color:black;
+    transform: scale(1.1);
 }
 .container{
     display: flex;
@@ -69,7 +71,7 @@ button{
 }
 .square1 img, .square2 img, .square3 img, .square4 img{
     border-radius: 15px;
-    
+    transition: 0.5s;
 }
 .square1 img:hover, .square2 img:hover, .square3 img:hover, .square4 img:hover{
     transform: scale(1.05);
