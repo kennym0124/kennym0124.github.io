@@ -15,7 +15,7 @@ body{
     animation: gradientBackground 12s infinite;
     
 }
-.introductionInformation{
+.section1{
     height: 100vh;
     width: 100vw;
     display: flex;
@@ -24,9 +24,72 @@ body{
     align-items: center;
     position: relative;
 }
+
+.introHeader{
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.leftside img{
+    cursor: pointer;
+}
+
+.rightside{
+    display: flex;
+    justify-content: space-evenly;
+    width: 600px;
+}
+
+.btn{
+    width: 75px;
+    height: 35px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.btn::before{
+    content:"";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-top: 1px solid white;
+    border-right: 1px solid white;
+    opacity: 0;
+}
+
+.btn::after{
+    content:"";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-bottom: 1px solid white;
+    border-left: 1px solid white;
+    opacity: 0;
+}
+
+.btn:hover{
+    transform: scale(1.1);
+    transition: 1s;
+}
+.btn:hover::after, .btn:hover::before{
+    cursor: pointer;
+    animation: border-top 2s forwards;
+}
 .greeting{
     height: 300px;
-    width: 1000px;
+    width: 1500px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -170,5 +233,23 @@ body{
     }
     100%{
         opacity: 1;
+    }
+}
+
+@keyframes border-top{
+    0%{
+        opacity: 0;
+        width: 0%;
+        height: 0%;
+    }
+    50%{
+        opacity: 1;
+        width: 100%;
+        height: 0%;
+    }
+    100%{
+        opacity: 1;
+        width: 100%;
+        height: 33px;
     }
 }
