@@ -14,41 +14,58 @@
     <div class="section1">
         <div class="introHeader">
             <div class="leftside">
-                <img id="logo" src="img/mainLogo.png" alt="logo" style="width: 100px; height: auto;">
+                <img id="logo" src="img/mainLogo.png" alt="logo">
             </div>
             <div class="rightside" >
-                <div class="btn" id="aboutMeButton">About Me</div> <div class="btn">Projects</div> <div class="btn">Resume</div> <div class="btn">Contact</div>
+                <div class="btn" id="aboutMeButton">about me</div> <div class="btn" id="projectsButton">projects</div> <div class="btn" id="resumeButton">resume</div> <div class="btn" id="contactMeButton">contact</div>
             </div>
         </div>
         <div class="greeting">
-            <h1>hi, i'm Kenneth Mondragon</h1>
-            <p style="opacity: 0;">Aspiring Software Engineer/Web Developer currently looking for opportunities in the industry</p>
+            <span>hi, i'm<h1>Kenneth Mondragon</h1></span>
+            <p>aspiring Software Engineer/Web Developer currently looking for opportunities in the industry</p>
         </div>
         <div class="scroll-down">scroll down/click the arrow for more</div>
         <div id="scroll-downButton"></div>
     </div>
     <div class="section2" id="section2">
-        <div class="aboutMe">
-            <div class="aboutMeContent">
-                <h2 style="font-size: 52px;">a bit about me:</h2>
-                <br>
-                <p>As of now, I am a Junior Computer Science student at Florida Polytechnic University. 
-                    My interests include: full-stack web development, software development, fitness, and gaming.
-                    As a kid, I was always interested in technology and the intricasies of how we make everything work.
-                    Now, as a college student, this desire is stronger than ever as I constantly search for new ways 
-                    to learn and expand my knowledge as I hope to make an impact within the industry. 
-                </p>
-                <br>
-                <p>
-                    If you're interested, feel free to look around the site. Hope you find something worth your attention!
-                </p>
-                <br>
-                <p>
-                    Think we could work together? Contact me: <a href="#">Contact Me</a>
-                </p>
+        <div class="imgColumn hiddenLeft">
+            <img id="selfImage" src="img/selfImage2.png" alt="kenneth">            
+        </div>
+        <div class="aboutMeColumn hiddenRight">
+            <h1>about me</h1>
+            <br>
+            <p>lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <br>
+            <div class="subInformationButtons">
+                <div class="subInfoButton" id="skills">skills</div>
+                <div class="subInfoButton" id="education">education</div>
+                <div class="subInfoButton" id="experience">experience</div>
+            </div>
+            <div class="subInformation active" id="skills2">
+                <li><span>UI/UX</span><br>skills (placeholder)</li>
+                <li><span>UI/UX</span><br>designing Web/App Interfaces</li>
+                <li><span>UI/UX</span><br>designing Web/App Interfaces</li>
+            </div>
+            <div class="subInformation" id="education2">
+                <li><span>UI/UX</span><br>education (placeholder)</li>
+                <li><span>UI/UX</span><br>designing Web/App Interfaces</li>
+                <li><span>UI/UX</span><br>designing Web/App Interfaces</li>
+            </div>
+            <div class="subInformation" id="experience2">
+                <li><span>UI/UX</span><br>experience (placeholder)</li>
+                <li><span>UI/UX</span><br>designing Web/App Interfaces</li>
+                <li><span>UI/UX</span><br>designing Web/App Interfaces</li>
             </div>
         </div>
-        <div class="selfImage"><img src="img/selfImage.png" style="height: 690px; width: auto; border-radius: 5px;"></div>
-    </div> 
+    </div>
+    <div class="section3" id="section3" style="height: 100vh; background-color: black 0.2; font-size: 100px;">
+        about me
+    </div>
+    <div class="section4" id="section4" style="height: 100vh; background-color: black 0.2; font-size: 100px;">
+        resume
+    </div>
+    <div class="section5" id="section5" style="height: 100vh; background-color: black 0.2; font-size: 100px;">
+        contact
+    </div>
 </body>
 </html>

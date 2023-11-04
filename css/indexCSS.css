@@ -7,6 +7,7 @@
 }
 ::-webkit-scrollbar{
     width: 0;
+    display: none;
 }
 body{
     background-image: linear-gradient(45deg, #000000, #37123C,#000000, #2f4649, #000000);
@@ -27,16 +28,21 @@ body{
 
 .introHeader{
     position: absolute;
+    opacity: 0;
     top: 0;
     width: 100vw;
     height: 100px;
     display: flex;
     align-items: center;
     justify-content: space-around;
+    animation: fadeIn 2s forwards;
+    animation-delay: 2s;
 }
 
-.leftside img{
+#logo{
     cursor: pointer;
+    width: 100px; 
+    height: auto;
 }
 
 .rightside{
@@ -55,7 +61,7 @@ body{
     position: relative;
 }
 
-.btn::before{
+.btn::before, .subInfoButton::before{
     content:"";
     position: absolute;
     left: 0;
@@ -67,7 +73,7 @@ body{
     opacity: 0;
 }
 
-.btn::after{
+.btn::after, .subInfoButton::after{
     content:"";
     position: absolute;
     right: 0;
@@ -79,14 +85,15 @@ body{
     opacity: 0;
 }
 
-.btn:hover{
+.btn:hover, .subInfoButton:hover{
     transform: scale(1.1);
     transition: 1s;
 }
-.btn:hover::after, .btn:hover::before{
-    cursor: pointer;
-    animation: border-top 2s forwards;
+
+.btn:hover::after, .btn:hover::before, .subInfoButton:hover::before, .subInfoButton:hover::after{
+    animation: border-top 0.8s forwards;
 }
+
 .greeting{
     height: 300px;
     width: 1500px;
@@ -94,41 +101,43 @@ body{
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    font-size: 35px;
-    
+    font-size: 35px;   
 }
 .greeting h1{
     background: linear-gradient(to right, #b289b8, #4ca7b3);
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
+}
+
+.greeting span, .greeting p{
     animation: fadeInFromRight 1.5s forwards;
 }
 
 .greeting p{
-    animation: fadeInFromRight 1.5s forwards;
+    opacity: 0;
     animation-delay: 1s;
 }
 
 .scroll-down, #scroll-downButton{
     position: absolute;
     margin: auto;
-    animation: fadeIn 2s forwards;
     visibility: hidden;
 }
 .scroll-down{
     bottom: 80px;
     font-size: 18px;
-    font-weight: 100;
+    font-weight: 100; 
+    animation: fadeIn 2s forwards;
     animation-delay: 2s;
 }
 
 #scroll-downButton{
-    bottom: 50px;
-    height: 20px;
-    width: 20px;
+    bottom: 40px;
+    height: 25px;
+    width: 25px;
     border: solid white;
-    transform: rotate(-45deg);
+    animation: fadeIn 2s forwards, heroArrow 2s infinite ease;
     border-right: none;
     border-top: none;
     animation-delay: 2s;
@@ -140,59 +149,106 @@ body{
 }
 
 .section2{
-    height: 1000px;
-    width: auto;
+    height: 100vh;
+    background-color: rgb(0, 0, 0, 0.5);
     display: flex;
     justify-content: space-evenly;
-    align-items: center;
+    align-items: center; 
 }
 
-.aboutMe{
-    width: 600px;
-    height: 700px;
+.imgColumn{
+    background-color: rgb(92, 89, 89, 0.2);
+    border-radius: 25px;
+    height: 600px;
+    width: 500px;
+    position: relative;
+    box-shadow: 20px 15px 15px rgba(255, 255, 255, 0.144);
+    
+}
+
+#selfImage{
+    bottom: 0px;
+    position: absolute;
+    width: 100%;
+    height: auto;
+    border-radius: 25px;
+}
+
+.aboutMeColumn{
     display: flex;
     flex-direction: column;
+    height: 600px;
+    width: 50vw;
+    border-radius: 25px;
+    background-color: black;
+    padding: 25px;
+    position: relative;
+    border: solid aquamarine 2px;
+}
+
+.aboutMeColumn h1{
+    font-size: 64px;
+}
+
+.subInformationButtons{
+    width: 50%;
+    height: 50px;
+    display: flex;
     justify-content: space-evenly;
     align-items: center;
-    background-color: black 0.5;
-    position: relative;
-    border-radius: 20px;
-    overflow: hidden;
 }
 
-.aboutMeContent{
-    z-index: 2;
-    padding: 5%;
-    text-align: center;
-    font-size: 1.5em;
+.subInfoButton{
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 0 20px 0.2px red;
 }
 
-.aboutMeContent p{
-    font-weight: 300;
+.subInformation{
+    padding: 5px;
+    overflow: auto;
+    display: none;
+    
 }
 
-.aboutMe::before{
-    content: "";
-    position: absolute;
-    width: 90%;
-    height: 140%;
-    background: linear-gradient(45deg, pink, blue);
-    animation: rotate 12s linear infinite;
+.subInformation li{
+    list-style: none;
+    margin: 10px 0;
 }
 
-.aboutMe::after{
-    content:'';
-    position: absolute;
-    background: rgb(0, 0, 0);
-    inset: 5px;
-    border-radius: 16px;
+.subInformation span{
+    font-size: 25px;
+    color: rgb(42, 110, 110);
 }
 
-.aboutMeContent h2{
-    background: linear-gradient(to right, rgb(230, 77, 103), rgb(190, 114, 109));
+.aboutMeColumn h1{
+    background: linear-gradient(to right, #b6f3c9, #4766f4);
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
+}
+
+.subInformation.active{
+    display: block;
+    animation: fadeIn 2s forwards;
+    transition: 2s;
+}
+
+.hiddenRight, .hiddenLeft{
+    opacity: 0;
+}
+
+.showRight{
+    animation: fadeInFromRight 1s forwards;
+    transition: 5s;
+    opacity: 1;
+}
+
+.showLeft{
+    animation: fadeInFromLeft 1s forwards;
+    transition: 5s;
+    opacity: 1;
 }
 
 @keyframes rotate{
@@ -217,21 +273,31 @@ body{
 }
 
 @keyframes fadeIn{
-    0%{ 
+    from{ 
        opacity: 0;
     }
-    100%{
+    to{
         opacity: 1;
         visibility: visible;
     }
 }
 
 @keyframes fadeInFromRight{
-    0%{
-       transform: translateX(25%); 
-       opacity: 0;
+    from{
+        transform: translateX(50%); 
+        opacity: 0;
     }
-    100%{
+    to{
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInFromLeft{
+    from{
+        transform: translateX(-50%); 
+        opacity: 0;
+    }
+    to{
         opacity: 1;
     }
 }
@@ -251,5 +317,20 @@ body{
         opacity: 1;
         width: 100%;
         height: 33px;
+    }
+}
+
+@keyframes heroArrow{
+    0%{
+        opacity: 0;
+        transform: rotate(-45deg); 
+    }
+    50%{
+        opacity: 1;
+        transform: rotate(-45deg);
+    }
+    100%{
+        opacity: 0;
+        transform: translateY(50%) rotate(-45deg);
     }
 }
