@@ -8,6 +8,7 @@ let infoButtons = document.querySelectorAll(".subInfoButton");
 let hiddenRight = document.querySelectorAll(".hiddenRight");
 let hiddenLeft = document.querySelectorAll(".hiddenLeft");
 
+
 const fadeRightObserver = new IntersectionObserver((hiddenElements) => {
     console.log(hiddenElements);
     hiddenElements.forEach((hiddenElement) => {
@@ -52,7 +53,6 @@ infoButtons.forEach((infoButton) => {
 
 
 function openInfoTab(tabname){
-    
     let infoTabs = document.getElementsByClassName("subInformation");
 
     for(infoTab of infoTabs){
