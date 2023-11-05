@@ -12,9 +12,6 @@ const fadeRightObserver = new IntersectionObserver((hiddenElements) => {
     console.log(hiddenElements);
     hiddenElements.forEach((hiddenElement) => {
         hiddenElement.target.classList.toggle("showRight", hiddenElement.isIntersecting);
-        if(hiddenElement.isIntersecting){
-            fadeRightObserver.unobserve(hiddenElement.target);
-        }
     })
 })
 
@@ -22,9 +19,6 @@ const fadeLeftObserver = new IntersectionObserver((hiddenElements) => {
     console.log(hiddenElements);
     hiddenElements.forEach((hiddenElement) => {
         hiddenElement.target.classList.toggle("showLeft", hiddenElement.isIntersecting);
-        if(hiddenElement.isIntersecting){
-            fadeLeftObserver.unobserve(hiddenElement.target);
-        }
     })
 })
 
